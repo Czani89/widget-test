@@ -133,9 +133,10 @@ describe("Settings bill with factory functions", function () {
       settingBill.makeCall();
       settingBill.makeCall();
 
+      assert.equal(11, settingBill.phoneBillTotal());
       assert.equal("warning", settingBill.warnings());
     });
-    it("should return danger when warning level cost is reached", function () {
+    it("should return danger when danger level cost is reached", function () {
       let settingBill = setBilling();
 
       settingBill.setSms(0.75);
@@ -155,7 +156,10 @@ describe("Settings bill with factory functions", function () {
       settingBill.makeCall();
       settingBill.makeCall();
       settingBill.makeCall();
+      settingBill.makeCall();
+      settingBill.makeCall();
 
+      assert.equal(15.5, settingBill.phoneBillTotal());
       assert.equal("danger", settingBill.warnings());
     });
   });

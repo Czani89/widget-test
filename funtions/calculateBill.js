@@ -17,9 +17,17 @@ function calcBill() {
   function bTotal() {
     return total;
   }
+  function setCalcClass() {
+    if (bTotal() >= 20 && bTotal() < 30) {
+      return "warning";
+    } else if (bTotal() >= 30) {
+      return "danger";
+    }
+  }
 
   return {
     calculateBill,
     bTotal,
+    setCalcClass,
   };
 }
